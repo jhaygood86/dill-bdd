@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="dill_test.feature" />
+    <None Remove="jeff.feature" />
+    <None Remove="roman_numeral.feature" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="dill_test.feature" />
+    <EmbeddedResource Include="jeff.feature" />
+    <EmbeddedResource Include="roman_numeral.feature" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dill\Dill.csproj" />
+  </ItemGroup>
+
+</Project>

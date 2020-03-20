@@ -9,8 +9,8 @@ Original author: Justin Haygood and used on Videa-tv production solutions.
 
 ## Usage
 
-Build with dotnet core and add library to your project. See sample .sh scripts in build/ directory
+Build src directory with dotnet core and add library to your project. See sample .sh scripts in build/ directory
 
 ## Samples
 
-Currently no samples available for public consumption, only were internally available. If forked to add samples, should be added to base repo.
+See src/Dill.Tests for examples

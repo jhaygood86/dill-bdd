@@ -12,7 +12,7 @@ namespace Dill.Tests
         [TestInitialize]
         public void OnInitialize()
         {
-            Dill dill = new Dill
+            Dill dill = new()
             {
                 FeatureLoaderType = FeatureLoaderType.EmbeddedResource,
                 FeatureBasePath = "Dill.Tests"

@@ -14,12 +14,12 @@ namespace Dill
 {
     public abstract class FeatureContext
     {
-        private readonly Dill _relishInstance;
+        private readonly Dill _dillInstance;
         private readonly GherkinDocument _gherkinDocument;
 
         protected FeatureContext(Dill dillInstance, string featureFileName)
         {
-            _relishInstance = dillInstance;
+            _dillInstance = dillInstance;
 
             string featureFile = string.Empty;
 
@@ -33,31 +33,25 @@ namespace Dill
                 featureFile = LoadFile(featureFileName);
             }
 
-            using (var sr = new StringReader(featureFile))
-            {
-                var parser = new Parser();
-                _gherkinDocument = parser.Parse(sr);
-            }
+            using var sr = new StringReader(featureFile);
+            var parser = new Parser();
+            _gherkinDocument = parser.Parse(sr);
         }
 
         private string LoadResource(string featureFileName)
         {
             var assembly = GetType().GetTypeInfo().Assembly;
 
-            using(var resource = assembly.GetManifestResourceStream(_relishInstance.FeatureBasePath + "." + featureFileName))
-            using (var sr = new StreamReader(resource))
-            {
-                return sr.ReadToEnd();
-            }
+            using var resource = assembly.GetManifestResourceStream(_dillInstance.FeatureBasePath + "." + featureFileName);
+            using var sr = new StreamReader(resource);
+            return sr.ReadToEnd();
         }
 
         private string LoadFile(string featureFileName)
         {
-            using (var file = new FileStream(featureFileName, FileMode.Open))
-            using (var sr = new StreamReader(file))
-            {
-                return sr.ReadToEnd();
-            }
+            using var file = new FileStream(featureFileName, FileMode.Open);
+            using var sr = new StreamReader(file);
+            return sr.ReadToEnd();
         }
 
         public async Task ExecuteScenarioAsync(string scenarioName)
@@ -126,7 +120,7 @@ namespace Dill
 
             var argumentMatches = Regex.Match(stepText, method.GetCustomAttribute<TAttribute>().Value);
 
-            List<object> arguments = new List<object>();
+            List<object> arguments = new();
 
             var parameters = method.GetParameters();
 
@@ -167,7 +161,7 @@ namespace Dill
             }
         }
 
-        private string GetStepText(Step step, TableRow exampleRow, TableRow exampleHeader)
+        private static string GetStepText(Step step, TableRow exampleRow, TableRow exampleHeader)
         {
             var stepText = step.Text;
 

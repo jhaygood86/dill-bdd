@@ -9,7 +9,7 @@ Original author: Justin Haygood and used on Videa production solutions.
 
 ## Usage
 
-Build src directory with dotnet core and add library to your project. See sample .sh scripts in build/ directory
+Build src directory with .NET 6.0 and add library to your project. See sample .sh scripts in build/ directory
 
 ## Samples
 

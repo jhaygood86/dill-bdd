@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Dill.Attributes;
+﻿using Dill.Attributes;
 using Dill.Tests.Examples;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
 
 namespace Dill.Tests.FeatureContext
 {

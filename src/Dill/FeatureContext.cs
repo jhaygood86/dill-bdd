@@ -47,7 +47,7 @@ namespace Dill
             return sr.ReadToEnd();
         }
 
-        private string LoadFile(string featureFileName)
+        private static string LoadFile(string featureFileName)
         {
             using var file = new FileStream(featureFileName, FileMode.Open);
             using var sr = new StreamReader(file);

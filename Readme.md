@@ -5,7 +5,7 @@ It is compatible with cucumber.io compatible feature files (Gherkin) that use a 
 
 The library is very small, and only concerned with running behavior tests using the Gherkin language. 
 
-Original author: Justin Haygood and used on Videa-tv production solutions.
+Original author: Justin Haygood and used on Videa production solutions.
 
 ## Usage
 
